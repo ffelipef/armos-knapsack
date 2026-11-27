@@ -5,7 +5,7 @@ ligado ao projeto ARMOS. O problema é modelado como mochila 0-1: a cada quadro,
 Android reserva sua parcela do orçamento e o desktop recebe a sobra, que deve ser preenchida
 com as tarefas de maior importância total.
 
-Projeto **ARMOS:** https://github.com/ffelipef/armos
+Projeto **ARMOS:** https://github.com/ffelipef/armos-knapsack/
 
 ## O que há aqui
 
@@ -15,11 +15,12 @@ Projeto **ARMOS:** https://github.com/ffelipef/armos
 | `generator.py` | gerador de instâncias sintéticas (não correlacionadas, fracamente e fortemente correlacionadas) |
 | `run_experiments.py` | roda os experimentos e grava `results/results.csv` e `results/env.json` |
 | `analyze.py` | gera `summary.csv`, `analysis.md` e os três gráficos |
+| `compare_platforms.py` | compara duas execuções (por exemplo macOS e Android): tabela de razões e gráficos |
 | `test_algorithms.py` | testes de corretude (confronto com força bruta e garantia de 1/2) |
 
 ## Instalação
 
-Requer Python 3.12 ou superior.
+Requer Python 3.9 ou superior (testado em 3.9.6 e 3.12.15).
 
 ```bash
 python3 -m venv .venv
@@ -30,10 +31,12 @@ pip install -r requirements.txt
 ## Como reproduzir
 
 ```bash
-python3 -m unittest                  # 1. testes de corretude
-python3 run_experiments.py --quick   # 2. teste rápido (segundos)
-python3 run_experiments.py           # 3. experimento completo do artigo
-python3 analyze.py results           # 4. tabelas e gráficos
+python -m unittest                  # 1. testes de corretude
+python run_experiments.py --quick   # 2. teste rápido (segundos)
+python run_experiments.py           # 3. experimento completo do artigo
+python analyze.py results           # 4. tabelas e gráficos
+# 5. comparar duas plataformas:
+python compare_platforms.py results_mac/results.csv results_android/results.csv --names macOS Android --out comparacao
 ```
 
 O experimento completo usa n ∈ {50, 100, 500, 1000, 5000}, γ ∈ {0,25; 0,5; 0,75}, os três
