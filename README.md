@@ -5,7 +5,7 @@ ligado ao projeto ARMOS. O problema é modelado como mochila 0-1: a cada quadro,
 Android reserva sua parcela do orçamento e o desktop recebe a sobra, que deve ser preenchida
 com as tarefas de maior importância total.
 
-Projeto **ARMOS:** https://github.com/ffelipef/armos-knapsack/
+Projeto **ARMOS:** https://github.com/ffelipef/armos/
 
 ## O que há aqui
 
